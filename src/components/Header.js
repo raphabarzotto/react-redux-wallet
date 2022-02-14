@@ -5,9 +5,29 @@ import PropTypes from 'prop-types';
 class Header extends React.Component {
   render() {
     const { userEmail } = this.props;
-    console.log(userEmail);
+    return (
+      <header>
+        <p>
+          <span>Email: </span>
 
-    return <div>Header</div>;
+          <span data-testid="email-field">
+            { userEmail }
+          </span>
+        </p>
+        <p>
+          <span>Despesa Total: R$ </span>
+
+          <span data-testid="total-field">
+            0
+            {' '}
+          </span>
+
+          <span data-testid="header-currency-field">
+            BRL
+          </span>
+        </p>
+      </header>
+    );
   }
 }
 
@@ -16,9 +36,10 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(state.wallet.expenses);
   return {
     userEmail: state.user.email,
+    userWalletExpenses: state.wallet.expenses,
   };
 };
 
