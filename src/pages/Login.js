@@ -60,7 +60,7 @@ class Login extends React.Component {
   render() {
     const { email, password, isEmailValid, isPasswordValid, redirect } = this.state;
 
-    if (redirect) return <Redirect to="/carteira" />
+    if (redirect) return <Redirect to="/carteira" />;
     return (
       <form>
         <input
