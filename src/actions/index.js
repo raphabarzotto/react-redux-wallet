@@ -25,12 +25,23 @@ export const currenciesAction = () => async (dispatch) => {
   });
 };
 
-export function saveExpenses(payload) {
-  return {
+// export function saveExpenses(payload) {
+//   console.log(payload.length);
+//   return {
+//     type: SAVE_EXPENSES,
+//     payload,
+//   };
+// }
+
+export const saveExpenses = (payload) => async (dispatch) => {
+  const payloadLength = payload.length;
+  payload[payloadLength - 1].exchangeRates = await RequestAPI();
+
+  dispatch({
     type: SAVE_EXPENSES,
     payload,
-  };
-}
+  });
+};
 
 export function saveTotal(payload) {
   return {

@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { currenciesAction, saveExpenses, saveTotal, loginButtonPress } from '../actions';
-import calculateTotal from '../services/calculateTotal';
+import { currenciesAction, saveExpenses } from '../actions';
 
 class Form extends React.Component {
   constructor() {
@@ -11,13 +10,12 @@ class Form extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.totalUpdate = this.totalUpdate.bind(this);
 
     this.state = {
       value: '',
-      description: '',
       currency: '',
       method: '',
+      description: '',
       tag: '',
       expenseToSave: [],
     };
@@ -35,7 +33,7 @@ class Form extends React.Component {
   }
 
   handleClick = () => {
-    const { saveExpensesProp, tableLength, currencies } = this.props;
+    const { saveExpensesProp, tableLength } = this.props;
     const {
       value,
       description,
@@ -45,24 +43,21 @@ class Form extends React.Component {
       expenseToSave,
     } = this.state;
     expenseToSave.push({
-      id: tableLength + 1,
+      id: tableLength,
       value,
-      description,
       currency,
       method,
+      description,
       tag,
-      exchangeRates: currencies,
     });
     saveExpensesProp(expenseToSave);
-    this.totalUpdate();
-  }
-
-  totalUpdate = () => {
-    const { saveTotalProp, loginButtonPressProp } = this.props;
-    const { expenseToSave } = this.state;
-    const sum = calculateTotal(expenseToSave);
-    saveTotalProp(sum);
-    loginButtonPressProp(sum);
+    this.setState({
+      value: '',
+      currency: '',
+      method: '',
+      description: '',
+      tag: '',
+    });
   }
 
   render() {
@@ -182,9 +177,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   currenciesActionProp: () => dispatch(currenciesAction()),
   saveExpensesProp: (currenciesToSend) => dispatch(saveExpenses(currenciesToSend)),
-  saveTotalProp: (totalToSave) => dispatch(saveTotal(totalToSave)),
-
-  loginButtonPressProp: (email) => dispatch(loginButtonPress(email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

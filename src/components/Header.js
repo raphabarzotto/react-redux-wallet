@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import calculateTotal from '../services/calculateTotal';
 
 class Header extends React.Component {
   render() {
-    const { userEmail, userWalletExpenses } = this.props;
-    console.log(calculateTotal(userWalletExpenses));
-    const teste = calculateTotal(userWalletExpenses);
+    const { userEmail,
+      // userTotalProp,
+      userWalletExpenses,
+    } = this.props;
+    // console.log(calculateTotal(userWalletExpenses));
+    const sum = calculateTotal(userWalletExpenses);
     return (
       <header>
         <p>
@@ -22,7 +24,8 @@ class Header extends React.Component {
           <span>Despesa Total: R$ </span>
 
           <span data-testid="total-field">
-            { teste }
+            { sum }
+            {/* { userTotalProp } */}
           </span>
           <span> </span>
 
@@ -41,6 +44,7 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => ({
   userEmail: state.user.email,
+  userTotalProp: state.wallet.totalBRL,
   userWalletExpenses: state.wallet.expenses,
 });
 

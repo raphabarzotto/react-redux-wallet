@@ -3,6 +3,7 @@ import {
   SAVE_EXPENSES,
   SAVE_TOTAL }
 from '../actions';
+import calculateTotal from '../services/calculateTotal';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -25,6 +26,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       tableLength: state.tableLength + 1,
       expenses: action.payload,
+      totalBRL: calculateTotal(action.payload),
     };
   case SAVE_TOTAL:
     return {
