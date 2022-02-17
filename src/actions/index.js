@@ -35,8 +35,10 @@ export const currenciesAction = () => async (dispatch) => {
 
 export const saveExpenses = (payload) => async (dispatch) => {
   const payloadLength = payload.length;
-  payload[payloadLength - 1].exchangeRates = await RequestAPI();
-
+  payload[0].exchangeRates = await RequestAPI();
+  for (let i = 1; i < payloadLength; i += 1) {
+    payload[i].exchangeRates = payload[0].exchangeRates;
+  }
   dispatch({
     type: SAVE_EXPENSES,
     payload,

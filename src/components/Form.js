@@ -17,7 +17,6 @@ class Form extends React.Component {
       method: '',
       description: '',
       tag: '',
-      expenseToSave: [],
     };
   }
 
@@ -33,30 +32,39 @@ class Form extends React.Component {
   }
 
   handleClick = () => {
-    const { saveExpensesProp, tableLength } = this.props;
+    const {
+      saveExpensesProp,
+      tableLength,
+      userWalletExpenses,
+    } = this.props;
+
     const {
       value,
       description,
       currency,
       method,
       tag,
-      expenseToSave,
     } = this.state;
-    expenseToSave.push({
-      id: tableLength,
-      value,
-      currency,
-      method,
-      description,
-      tag,
-    });
-    saveExpensesProp(expenseToSave);
+    console.log(description);
+    const newExpense = [
+      ...userWalletExpenses,
+      {
+        id: tableLength,
+        value,
+        currency,
+        method,
+        description,
+        tag,
+      },
+    ];
+
+    saveExpensesProp(newExpense);
     this.setState({
       value: '',
-      currency: '',
-      method: '',
-      description: '',
-      tag: '',
+      // currency: '',
+      // method: '',
+      // description: '',
+      // tag: '',
     });
   }
 
@@ -90,7 +98,7 @@ class Form extends React.Component {
         <label htmlFor="description-input">
           Descrição:
           <input
-            type="textarea"
+            type="text"
             name="description"
             value={ description }
             data-testid="description-input"
@@ -172,6 +180,7 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   isLoading: state.wallet.isLoading,
   tableLength: state.wallet.tableLength,
+  userWalletExpenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
