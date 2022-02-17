@@ -32,15 +32,12 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  userEmail: PropTypes.string.isRequired,
-};
+  userEmail: PropTypes.string,
+}.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state.wallet.expenses);
-  return {
-    userEmail: state.user.email,
-    userWalletExpenses: state.wallet.expenses,
-  };
-};
+const mapStateToProps = (state) => ({
+  userEmail: state.user.email,
+  userWalletExpenses: state.wallet.expenses,
+});
 
 export default connect(mapStateToProps)(Header);
