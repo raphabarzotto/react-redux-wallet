@@ -45,7 +45,6 @@ class Form extends React.Component {
       method,
       tag,
     } = this.state;
-    console.log(description);
     const newExpense = [
       ...userWalletExpenses,
       {
