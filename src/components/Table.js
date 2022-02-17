@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 class Table extends React.Component {
   render() {
-    const { expenses } = this.props;
-    console.log(expenses);
+    // const { expenses } = this.props;
+    // console.log(expenses);
     return <div>Table</div>;
   }
 }

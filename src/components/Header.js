@@ -2,9 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import calculateTotal from '../services/calculateTotal';
+
 class Header extends React.Component {
   render() {
-    const { userEmail } = this.props;
+    const { userEmail, userWalletExpenses } = this.props;
+    console.log(calculateTotal(userWalletExpenses));
+    const teste = calculateTotal(userWalletExpenses);
     return (
       <header>
         <p>
@@ -18,9 +22,9 @@ class Header extends React.Component {
           <span>Despesa Total: R$ </span>
 
           <span data-testid="total-field">
-            0
-            {' '}
+            { teste }
           </span>
+          <span> </span>
 
           <span data-testid="header-currency-field">
             BRL

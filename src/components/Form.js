@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { currenciesAction, saveExpenses } from '../actions';
+import { currenciesAction, saveExpenses, saveTotal, loginButtonPress } from '../actions';
+import calculateTotal from '../services/calculateTotal';
 
 class Form extends React.Component {
   constructor() {
     super();
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.totalUpdate = this.totalUpdate.bind(this);
 
     this.state = {
       value: '',
@@ -49,6 +54,15 @@ class Form extends React.Component {
       exchangeRates: currencies,
     });
     saveExpensesProp(expenseToSave);
+    this.totalUpdate();
+  }
+
+  totalUpdate = () => {
+    const { saveTotalProp, loginButtonPressProp } = this.props;
+    const { expenseToSave } = this.state;
+    const sum = calculateTotal(expenseToSave);
+    saveTotalProp(sum);
+    loginButtonPressProp(sum);
   }
 
   render() {
@@ -99,7 +113,6 @@ class Form extends React.Component {
             id="currency-input"
             onChange={ this.handleChange }
           >
-            <option value="" disabled selected>Selecione a moeda utilizada</option>
             {Object.values(currencies).map((coin) => (
               <option
                 key={ coin.code }
@@ -121,7 +134,6 @@ class Form extends React.Component {
             id="method-input"
             onChange={ this.handleChange }
           >
-            <option value="" disabled selected>Selecione o método de pagamento</option>
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
             <option value="Cartão de débito">Cartão de débito</option>
@@ -137,7 +149,6 @@ class Form extends React.Component {
             id="tag-input"
             onChange={ this.handleChange }
           >
-            <option value="" disabled selected>Selecione a categoria</option>
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
             <option value="Trabalho">Trabalho</option>
@@ -171,6 +182,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   currenciesActionProp: () => dispatch(currenciesAction()),
   saveExpensesProp: (currenciesToSend) => dispatch(saveExpenses(currenciesToSend)),
+  saveTotalProp: (totalToSave) => dispatch(saveTotal(totalToSave)),
+
+  loginButtonPressProp: (email) => dispatch(loginButtonPress(email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
