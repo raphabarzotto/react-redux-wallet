@@ -21,7 +21,7 @@ class Header extends React.Component {
           </span>
         </h3>
         <h3 className="wallet-total-header">
-          <span>Despesa Total: R$ </span>
+          <span>Total Expenses: R$ </span>
 
           <span data-testid="total-field">
             { sum }

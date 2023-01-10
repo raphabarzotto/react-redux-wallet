@@ -84,7 +84,7 @@ class Form extends React.Component {
         <form className="wallet-form">
 
           <label htmlFor="value-input">
-            Valor:
+            Value:
             <input
               type="number"
               name="value"
@@ -92,13 +92,13 @@ class Form extends React.Component {
               data-testid="value-input"
               className="wallet-form-input"
               id="value-input"
-              placeholder="Valor"
+              placeholder="Value"
               onChange={ this.handleChange }
             />
           </label>
 
           <label htmlFor="description-input">
-            Descrição:
+            Description:
             <input
               type="text"
               name="description"
@@ -106,13 +106,13 @@ class Form extends React.Component {
               data-testid="description-input"
               className="wallet-form-input"
               id="description-input"
-              placeholder="Descrição"
+              placeholder="Description"
               onChange={ this.handleChange }
             />
           </label>
 
           <label htmlFor="currency-input">
-            Moeda:
+            Currency:
             <select
               name="currency"
               value={ currency }
@@ -121,7 +121,7 @@ class Form extends React.Component {
               id="currency-input"
               onChange={ this.handleChange }
             >
-              <option value="" disabled>Moeda</option>
+              <option value="" disabled>Currency</option>
               {Object.values(currencies).map((coin) => (
                 <option
                   key={ coin.code }
@@ -135,7 +135,7 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="method-input">
-            Forma de Pagamento:
+            Payment Method:
             <select
               name="method"
               value={ method }
@@ -144,15 +144,15 @@ class Form extends React.Component {
               id="method-input"
               onChange={ this.handleChange }
             >
-              <option value="" disabled>Forma de Pagamento</option>
-              <option value="Dinheiro">Dinheiro</option>
-              <option value="Cartão de crédito">Cartão de crédito</option>
-              <option value="Cartão de débito">Cartão de débito</option>
+              <option value="" disabled>Payment Method</option>
+              <option value="Dinheiro">Cash</option>
+              <option value="Cartão de crédito">Credit Card</option>
+              <option value="Cartão de débito">Debit Card</option>
             </select>
           </label>
 
           <label htmlFor="tag-input">
-            Categoria
+            Category
             <select
               name="tag"
               value={ tag }
@@ -161,12 +161,12 @@ class Form extends React.Component {
               id="tag-input"
               onChange={ this.handleChange }
             >
-              <option value="" disabled>Categoria</option>
-              <option value="Alimentação">Alimentação</option>
-              <option value="Lazer">Lazer</option>
-              <option value="Trabalho">Trabalho</option>
-              <option value="Transporte">Transporte</option>
-              <option value="Saúde">Saúde</option>
+              <option value="" disabled>Category</option>
+              <option value="Alimentação">Food</option>
+              <option value="Lazer">Recreation & Entertainment</option>
+              <option value="Trabalho">Work</option>
+              <option value="Transporte">Transportation</option>
+              <option value="Saúde">Health</option>
             </select>
           </label>
 
@@ -175,7 +175,7 @@ class Form extends React.Component {
             onClick={ this.handleClick }
             className="wallet-form-button"
           >
-            Adicionar despesa
+            Add Expense
           </button>
         </form>
       </div>
