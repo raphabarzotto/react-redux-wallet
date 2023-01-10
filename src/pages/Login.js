@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import '../css/login.css'
 
 import { loginButtonPress } from '../actions';
 
@@ -62,31 +63,45 @@ class Login extends React.Component {
 
     if (redirect) return <Redirect to="/carteira" />;
     return (
-      <form>
-        <input
-          type="email"
-          data-testid="email-input"
-          name="email"
-          value={ email }
-          placeholder="Email"
-          onChange={ this.onInputChange }
-        />
-        <input
-          type="password"
-          data-testid="password-input"
-          name="password"
-          value={ password }
-          placeholder="Password"
-          onChange={ this.onInputChange }
-        />
-        <button
-          type="button"
-          disabled={ !isEmailValid || !isPasswordValid }
-          onClick={ this.handleClick }
-        >
-          Entrar
-        </button>
-      </form>
+      <div className="form-login-wrap">
+        <form className="form-login">
+          <div className="form-header">
+            <h3>Login</h3>
+          </div>
+          <div className="form-login-group">
+            <input
+              type="email"
+              className="form-login-input"
+              data-testid="email-input"
+              name="email"
+              value={ email }
+              placeholder="Email"
+              onChange={ this.onInputChange }
+            />
+          </div>
+          <div className="form-login-group">
+            <input
+              type="password"
+              className="form-login-input"
+              data-testid="password-input"
+              name="password"
+              value={ password }
+              placeholder="Password"
+              onChange={ this.onInputChange }
+              />
+          </div>
+          <div className="form-login-group">
+            <button
+              type="button"
+              className="form-login-button"
+              disabled={ !isEmailValid || !isPasswordValid }
+              onClick={ this.handleClick }
+            >
+              Entrar
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

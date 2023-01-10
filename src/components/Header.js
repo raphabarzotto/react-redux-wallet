@@ -13,15 +13,15 @@ class Header extends React.Component {
     const sum = calculateTotal(userWalletExpenses);
     return (
       <header>
-        <p>
+        <h3 className="wallet-email-header">
           <span>Email: </span>
 
           <span data-testid="email-field">
             { userEmail }
           </span>
-        </p>
-        <p>
-          <span>Despesa Total: R$ </span>
+        </h3>
+        <h3 className="wallet-total-header">
+          <span>Total Expenses: R$ </span>
 
           <span data-testid="total-field">
             { sum }
@@ -32,7 +32,7 @@ class Header extends React.Component {
           <span data-testid="header-currency-field">
             BRL
           </span>
-        </p>
+        </h3>
       </header>
     );
   }
