@@ -1,13 +1,18 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# React Redux Wallet
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+- In this project, I developed a simple wallet app using React Redux
+- Used the free API https://economia.awesomeapi.com.br/json/all to help with currency exchange rates
+- Project was made in February 2022 as a part of [Trybe's Front-end Course](https://www.betrybe.com/)
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Project features and images
+- Login page with email REGEX and password minimum characters requirements
+![login page without requirements met](/images/login1.png "login page without requirements met")
+![login page with requirements met](/images/login2.png "login page with requirements met")
+- Wallet page containing:
+  - Header with email information and total spent
+  - Forms to add a new expense
+  - Table of detailed expenses
+![wallet page](/images/wallet.png "wallet page")
+
+# What to do next
+- Add an Edit and a Delete button
