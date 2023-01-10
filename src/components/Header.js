@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import calculateTotal from '../services/calculateTotal';
 
-import '../css/login-header.css';
-
 class Header extends React.Component {
   render() {
     const { userEmail,
