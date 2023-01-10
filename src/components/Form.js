@@ -145,9 +145,9 @@ class Form extends React.Component {
               onChange={ this.handleChange }
             >
               <option value="" disabled>Payment Method</option>
-              <option value="Dinheiro">Cash</option>
-              <option value="Cartão de crédito">Credit Card</option>
-              <option value="Cartão de débito">Debit Card</option>
+              <option value="Cash">Cash</option>
+              <option value="Credit Card">Credit Card</option>
+              <option value="Debit Card">Debit Card</option>
             </select>
           </label>
 
@@ -162,11 +162,11 @@ class Form extends React.Component {
               onChange={ this.handleChange }
             >
               <option value="" disabled>Category</option>
-              <option value="Alimentação">Food</option>
-              <option value="Lazer">Recreation & Entertainment</option>
-              <option value="Trabalho">Work</option>
-              <option value="Transporte">Transportation</option>
-              <option value="Saúde">Health</option>
+              <option value="Food">Food</option>
+              <option value="Recreation & Entertainment">Recreation & Entertainment</option>
+              <option value="Work">Work</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Health">Health</option>
             </select>
           </label>
 
