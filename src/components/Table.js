@@ -30,7 +30,8 @@ class Table extends React.Component {
                 id,
                 exchangeRates,
               } = expense;
-              console.log((index + 1) % 2 === 1);
+              
+              const classToUse = (index + 1) % 2 === 0 ? "light-grey-line" : "white-line";
               const expenseCurrencyValue = exchangeRates[currency];
               const totalValue = value * expenseCurrencyValue.ask;
               const currencyValue = Number(expenseCurrencyValue.ask).toFixed(2);
@@ -38,7 +39,7 @@ class Table extends React.Component {
               const totalValueToFixed = Number(totalValue).toFixed(2);
               
               return (
-                <tr key={ id }>
+                <tr key={ id } className={ classToUse }>
                   <td>{ description }</td>
                   <td>{ tag }</td>
                   <td>{ method }</td>

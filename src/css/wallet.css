@@ -74,3 +74,31 @@ header{
 .wallet-form-button:hover{
   background: #445e93;
 }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  align-items: center;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+th {
+  background: black;
+  color: white;
+}
+
+td {
+  padding-left: 8px;
+}
+
+.table-div{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.light-grey-line{
+  background: #dadada;
+}
