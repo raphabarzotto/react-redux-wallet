@@ -1,0 +1,21 @@
+body{
+  font-family: 'Segoe UI', sans-serif;;
+  font-size: 1rem;
+  line-height: 1.6;
+  height: 100%;
+}
+
+header{
+  background: #ced097;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.wallet-email-header{
+  padding-left: 5%;
+}
+
+.wallet-total-header{
+  padding-right: 5%;
+}

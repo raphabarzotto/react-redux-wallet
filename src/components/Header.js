@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import calculateTotal from '../services/calculateTotal';
 
+import '../css/login-header.css';
+
 class Header extends React.Component {
   render() {
     const { userEmail,
@@ -13,14 +15,14 @@ class Header extends React.Component {
     const sum = calculateTotal(userWalletExpenses);
     return (
       <header>
-        <p>
+        <h3 className="wallet-email-header">
           <span>Email: </span>
 
           <span data-testid="email-field">
             { userEmail }
           </span>
-        </p>
-        <p>
+        </h3>
+        <h3 className="wallet-total-header">
           <span>Despesa Total: R$ </span>
 
           <span data-testid="total-field">
@@ -32,7 +34,7 @@ class Header extends React.Component {
           <span data-testid="header-currency-field">
             BRL
           </span>
-        </p>
+        </h3>
       </header>
     );
   }
