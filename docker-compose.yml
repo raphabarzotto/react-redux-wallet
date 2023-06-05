@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: react-redux-wallet
+    image: react-redux-wallet
+    build: .
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
